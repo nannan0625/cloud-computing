@@ -1,0 +1,10 @@
+FROM centos:7
+WORKDIR /root
+COPY wordpress.tar.gz /root
+#上传wordpress压缩包
+COPY install.sh /root
+#上传安装脚本
+RUN yum install -y wget initscripts tar\&& chmod +x *.sh
+#下载wget添加执行权限
+run sh install.sh
+EXPOSE  80
